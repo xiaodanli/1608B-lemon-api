@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+var classifyApi = require('./classify');
+
+
+/* 添加分类 */
+router.post('/api/addClassify', classifyApi.addClassify);
+
+//查询所有分类
+router.get('/api/allClassify',classifyApi.allClassify);
 
 module.exports = router;

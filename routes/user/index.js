@@ -3,13 +3,15 @@ var sql = require('../../mysql/sql'); //sql语句
 
 var query = require('../../mysql');
 
+var uuid = require('node-uuid');
+
 function addUser(req,res,next){
     
-    var name = req.body.name;
+    var nick_name = req.body.nick_name;
 
     var uid = req.body.uid;
 
-    if(!name){
+    if(!nick_name){
         res.json({code:2,msg:"用户名不存在"});
         return 
     }else if(!uid){
@@ -18,23 +20,29 @@ function addUser(req,res,next){
 
     //是否存在用户名
     function isHas(){
-        query(sql.SELECT_ISHAS,[name],function(error,results){
-            if(!error){
+        query(sql.SELECT_ISHAS,[nick_name],function(error,results){
+            if(!error){  
                 if(results.length > 0){
-                    res.json({code:3,msg:"用户名已存在"})
+                    res.json({code:3,msg:"此昵称已被使用"})
                 }else{
                     add();
                 }
             }else{
-                res.json({code:0,msg:"服务器错误"})
+                res.json({code:0,error})
             }
         })
     }
 
     //添加用户
     function add(){
-        query(sql.ADD_USER,[],function(){
 
+        uid = uuid.v1();
+        query(sql.ADD_USER,[uid,nick_name],function(error,results){
+            if(!error){
+                res.json({code:1,msg:"添加成功",uid:uid})
+            }else{
+                res.json({code:0,error})
+            }
         })
     }
 

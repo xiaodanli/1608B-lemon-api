@@ -2,7 +2,7 @@
  * @Author: 李晓丹 
  * @Date: 2018-11-07 13:17:52 
  * @Last Modified by: 李晓丹
- * @Last Modified time: 2018-11-08 14:27:55
+ * @Last Modified time: 2018-11-09 13:18:19
  */
 var mysql = require('mysql');
 
@@ -10,7 +10,7 @@ var config = {
     host:'localhost',
     user:'root',
     password:'root',
-    database:'1608b',
+    database:'lemon',
     connectionLimit:100,
     port:3306
 }
@@ -51,6 +51,7 @@ module.exports = function(sql,query,fn){     //('select * from userlist',,functi
             fn(null,results);
         }
     }
+
 
 
     pool.getConnection(connectionCallback)

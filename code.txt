@@ -1,0 +1,38 @@
+code：0   服务器错误
+
+code：1  成功
+
+code：2 用户名不存在
+
+code：3 昵称被使用
+
+code：4  缺少参数
+
+
+uid  cName分类的名称  cIcon  图标   分类所属的类别（支出还是收入）
+4
+
+classify  
+c_icon   
+
+c_type
+
+c_name
+
+-------------
+
+loglist  
+
+money
+
+time
+
+lid
+
+
+
+
+
+
+
+
