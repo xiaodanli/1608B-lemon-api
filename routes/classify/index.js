@@ -42,7 +42,7 @@ function addClassify(req,res,next){
 
         query(sql.ADD_CLASSIFY,[cid,cName,cIcon,cType,uid],function(error,results){
             if(!error){
-                res.json({code:0,msg:"添加成功",cid:cid})
+                res.json({code:1,msg:"添加成功",cid:cid})
             }else{
                 res.json({code:0,error})
             }
@@ -60,7 +60,7 @@ function allClassify(req,res,next){
     if(uid){
         query(sql.SELECT_ALL_CLASSIFY,[uid],function(error,results){
             if(!error){
-                res.json({code:0,results})
+                res.json({code:1,results})
             }else{
                 res.json({code:0,error})
             }
@@ -70,7 +70,26 @@ function allClassify(req,res,next){
     }
 }
 
+//获取所有icon
+
+function getIcon(req,res,next){
+    var uid = req.query.uid;
+
+    if(!uid){
+        res.json({code:2,msg:"此用户不存在"})
+    }else{
+        query(sql.SELECT_ALL_ICON,function(error,results){
+            if(error){
+                res.json({code:0,msg:'服务器错误'})
+            }else{
+                res.json({code:1,results})
+            }
+        })
+    }
+}
+
 module.exports = {
     addClassify:addClassify,
-    allClassify:allClassify
+    allClassify:allClassify,
+    getIcon:getIcon
 }

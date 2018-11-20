@@ -9,25 +9,48 @@ code：3 昵称被使用
 code：4  缺少参数
 
 
-uid  cName分类的名称  cIcon  图标   分类所属的类别（支出还是收入）
+
+
+添加账单：
+
+lid   
+
+uid
+
+cid
+
+create_time  
+
+money
 4
 
-classify  
-c_icon   
+classify
+uid
 
-c_type
+c_icon
 
 c_name
 
--------------
+c_type
 
-loglist  
+loginfo
+
+lid
 
 money
 
-time
+create_time
 
-lid
+
+ad304c50-e3cb-11e8-9f3c-d58f7deea390
+
+
+
+
+
+
+
+
 
 
 

@@ -7,4 +7,6 @@ router.post('/api/addBill',billApi.addBill);
 
 router.get('/api/delBill',billApi.delBill);
 
+router.get('/api/getBill',billApi.getBill);
+
 module.exports = router

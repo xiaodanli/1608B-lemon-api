@@ -11,11 +11,10 @@ function addUser(req,res,next){
 
     var uid = req.body.uid;
 
-    if(!nick_name){
-        res.json({code:2,msg:"用户名不存在"});
-        return 
-    }else if(!uid){
+    if(!uid){
         isHas();
+    }else{
+        res.json({code:3,msg:"用户已存在"})
     }
 
     //是否存在用户名
